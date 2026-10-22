@@ -111,32 +111,8 @@ export const PublicNavbar: React.FC<PublicNavbarProps> = ({
           </button>
         </nav>
 
-        {/* Right CTA & Engine Pulse */}
+        {/* Right CTA */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.35rem",
-              fontSize: "0.75rem",
-              color: "var(--color-text-secondary)"
-            }}
-          >
-            <span
-              style={{
-                width: 7,
-                height: 7,
-                borderRadius: "50%",
-                backgroundColor: isBackendHealthy
-                  ? "var(--color-success)"
-                  : "var(--color-danger)"
-              }}
-            />
-            <span style={{ fontSize: "0.71875rem" }}>
-              {isBackendHealthy ? "Engine Ready" : "Backend Offline"}
-            </span>
-          </div>
-
           <button
             className="btn btn-primary"
             onClick={() => handleNav("workspace")}

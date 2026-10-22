@@ -52,20 +52,6 @@ export const WorkbenchNavbar: React.FC<WorkbenchTopbarProps> = ({
       </div>
 
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.35rem", fontSize: "0.75rem", color: "var(--color-text-secondary)" }}>
-          <span
-            style={{
-              width: 7,
-              height: 7,
-              borderRadius: "50%",
-              backgroundColor: isBackendHealthy ? "var(--color-success)" : "var(--color-danger)"
-            }}
-          />
-          <span style={{ fontSize: "0.71875rem" }}>
-            {isBackendHealthy ? "Local Engine Active (CPU)" : "Engine Offline"}
-          </span>
-        </div>
-
         <button
           className="btn btn-secondary"
           style={{ fontSize: "0.75rem", padding: "0.3rem 0.65rem" }}

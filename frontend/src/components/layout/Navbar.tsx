@@ -30,19 +30,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, isBacke
       </div>
 
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontSize: "0.8125rem" }}>
-          <span
-            style={{
-              width: 8,
-              height: 8,
-              borderRadius: "50%",
-              backgroundColor: isBackendHealthy ? "var(--color-success)" : "var(--color-danger)"
-            }}
-          />
-          <span style={{ color: "var(--color-text-secondary)" }}>
-            {isBackendHealthy ? "FastAPI Local Engine Active" : "Backend Offline"}
-          </span>
-        </div>
         <button
           className="btn btn-primary"
           style={{ padding: "0.35rem 0.85rem", fontSize: "0.8125rem" }}
