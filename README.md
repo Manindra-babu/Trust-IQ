@@ -1,6 +1,14 @@
 # TRUSTIQ
 ### Unified AI Trust, Evidence, Safety and Fairness Intelligence System
 
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20on%20Render-2563EB?style=for-the-badge&logo=render&logoColor=white)](https://trust-iq.onrender.com/)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/Frontend-React%20%7C%20Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+> 🚀 **Live Workbench:** [https://trust-iq.onrender.com/](https://trust-iq.onrender.com/)
+
 TRUSTIQ is a classical machine learning research workbench that analyzes text for evidential support, misinformation-related labels, toxic language, and length-aware classification disparities.
 
 Built entirely with classical machine learning algorithms (TF-IDF, Logistic Regression, Naive Bayes, Linear SVMs, BM25/Cosine Similarity) running on a Windows 11 CPU with 16 GB RAM. TRUSTIQ does not call pretrained language models, LLM APIs, or hosted inference services.
