@@ -30,10 +30,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy source code and trained classical ML models
+# Copy source code, scripts, data, and trained classical ML models
 COPY backend/ ./backend/
+COPY scripts/ ./scripts/
 COPY data/ ./data/
 COPY models/ ./models/
+
+ENV PYTHONPATH="/app:${PYTHONPATH}"
 
 # Copy built frontend from Stage 1 into frontend/dist
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist

@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
+import backend.services.unpickler_compat  # Register unpickle shims on boot
 from backend.config import CORS_ORIGINS
 from backend.routers import analysis, models, datasets, evaluation, training
 
@@ -32,7 +33,7 @@ app.include_router(datasets.router)
 app.include_router(evaluation.router)
 app.include_router(training.router)
 
-@app.get("/api/health")
+@app.api_route("/api/health", methods=["GET", "HEAD"])
 def health_check():
     return {
         "status": "healthy",
@@ -40,7 +41,7 @@ def health_check():
         "version": "1.0.0"
     }
 
-@app.get("/api/status")
+@app.api_route("/api/status", methods=["GET", "HEAD"])
 def system_status():
     from backend.services.evidence_service import evidence_service
     from backend.services.misinformation_service import misinformation_service
@@ -57,10 +58,21 @@ def system_status():
 
 # Mount Production Static Frontend if built
 frontend_dist = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+
+@app.api_route("/", methods=["GET", "HEAD"])
+async def root_index():
+    if frontend_dist.exists() and (frontend_dist / "index.html").exists():
+        return FileResponse(str(frontend_dist / "index.html"))
+    return {
+        "status": "healthy",
+        "service": "TRUSTIQ Unified ML Engine",
+        "version": "1.0.0"
+    }
+
 if frontend_dist.exists() and (frontend_dist / "index.html").exists():
     app.mount("/assets", StaticFiles(directory=str(frontend_dist / "assets")), name="assets")
 
-    @app.get("/{full_path:path}")
+    @app.api_route("/{full_path:path}", methods=["GET", "HEAD"])
     async def serve_spa(full_path: str):
         if full_path.startswith("api/"):
             return JSONResponse(status_code=404, content={"detail": "API route not found"})

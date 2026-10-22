@@ -9,6 +9,7 @@ import joblib
 import numpy as np
 from pathlib import Path
 from typing import Dict, Any, List
+import backend.services.unpickler_compat  # Ensure legacy scripts shims are registered
 from backend.config import MODELS_DIR
 
 LABEL_COLUMNS = [

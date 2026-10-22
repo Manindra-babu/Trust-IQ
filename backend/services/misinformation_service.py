@@ -7,6 +7,7 @@ import re
 import joblib
 from pathlib import Path
 from typing import Dict, Any, Optional
+import backend.services.unpickler_compat  # Ensure legacy scripts shims are registered
 from backend.config import MODELS_DIR
 
 SIX_LABELS = ["pants-fire", "false", "barely-true", "half-true", "mostly-true", "true"]

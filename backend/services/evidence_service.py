@@ -8,6 +8,7 @@ import joblib
 import numpy as np
 from pathlib import Path
 from typing import List, Dict, Any, Optional
+import backend.services.unpickler_compat  # Ensure legacy scripts shims are registered
 from backend.config import MODELS_DIR
 
 class EvidenceService:
