@@ -95,7 +95,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="workbench-layout">
+    <div className={`workbench-layout ${isSidebarCollapsed ? "sidebar-collapsed" : ""}`}>
       <WorkbenchSidebar
         currentPage={currentPage}
         onNavigate={setCurrentPage}
@@ -110,7 +110,9 @@ export const App: React.FC = () => {
           onToggleSidebar={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
         />
         <main className="workbench-content">
-          {renderPageContent()}
+          <div className="workbench-content-inner">
+            {renderPageContent()}
+          </div>
         </main>
         <Footer onNavigate={setCurrentPage} />
       </div>

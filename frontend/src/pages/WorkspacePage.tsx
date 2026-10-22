@@ -80,16 +80,25 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
 
   return (
     <div>
-      {/* Top Workspace Bar */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.25rem", flexWrap: "wrap", gap: "1rem" }}>
+      {/* Top Workspace Page Header (Disciplined Left-Right Alignment) */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+          marginBottom: "1.5rem",
+          flexWrap: "wrap",
+          gap: "1rem"
+        }}
+      >
         <div>
-          <h1 style={{ fontSize: "1.375rem", marginBottom: "0.2rem" }}>Text Analysis Workspace</h1>
-          <p style={{ fontSize: "0.8125rem" }}>
+          <h1 style={{ fontSize: "1.5rem", marginBottom: "0.35rem" }}>Text Analysis Workspace</h1>
+          <p style={{ fontSize: "0.875rem", margin: 0, maxWidth: "680px" }}>
             Submit text for real-time inference across classical evidence retrieval, misinformation classification, and multi-label toxicity models.
           </p>
         </div>
 
-        {/* Quiet Readiness Indicator */}
+        {/* Engine Readiness Status */}
         <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
           <span className="badge badge-success" style={{ fontSize: "0.6875rem" }}>
             4 Models Operational
@@ -98,12 +107,12 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
         </div>
       </div>
 
-      {/* Main Workspace Layout (Two-Column on Desktop) */}
-      <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "1.25rem", alignItems: "start" }}>
+      {/* Main Workspace Layout (Two-Column Balanced Grid) */}
+      <div className="workspace-grid">
         {/* Left Column: Input Panel */}
-        <div className="panel">
+        <div className="panel" style={{ padding: "var(--card-padding)" }}>
           {/* Mode Selector Tabs */}
-          <div style={{ display: "flex", gap: "0.25rem", padding: "0.2rem", backgroundColor: "var(--color-surface-subtle)", borderRadius: "var(--radius-sm)", marginBottom: "0.85rem" }}>
+          <div style={{ display: "flex", gap: "0.25rem", padding: "0.2rem", backgroundColor: "var(--color-surface-subtle)", borderRadius: "var(--radius-sm)", marginBottom: "1rem" }}>
             {[
               { id: "full", label: "Full Analysis" },
               { id: "evidence", label: "Evidence Only" },
@@ -115,8 +124,8 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
                 onClick={() => setMode(tab.id)}
                 style={{
                   flex: 1,
-                  padding: "0.35rem 0.5rem",
-                  fontSize: "0.75rem",
+                  padding: "0.45rem 0.5rem",
+                  fontSize: "0.78125rem",
                   fontWeight: mode === tab.id ? 600 : 500,
                   color: mode === tab.id ? "var(--color-primary)" : "var(--color-text-secondary)",
                   backgroundColor: mode === tab.id ? "var(--color-surface)" : "transparent",
@@ -131,19 +140,19 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
           </div>
 
           {/* Text Area */}
-          <div className="form-group" style={{ marginBottom: "0.5rem" }}>
+          <div className="form-group" style={{ marginBottom: "0.65rem" }}>
             <textarea
               className="form-control"
               placeholder="Enter a claim, political statement, debate comment, or document passage..."
-              rows={5}
+              rows={6}
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              style={{ fontSize: "0.84375rem" }}
+              style={{ fontSize: "0.875rem" }}
             />
           </div>
 
           {/* Input Footer: Counts & Sample Actions */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.85rem", fontSize: "0.71875rem", color: "var(--color-text-muted)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", fontSize: "0.75rem", color: "var(--color-text-muted)" }}>
             <span>
               {inputText.length} characters | {inputText.split(/\s+/).filter(Boolean).length} tokens
             </span>
@@ -154,7 +163,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
                   setResult(null);
                   setError(null);
                 }}
-                style={{ display: "flex", alignItems: "center", gap: "0.2rem", color: "var(--color-text-muted)" }}
+                style={{ display: "flex", alignItems: "center", gap: "0.25rem", color: "var(--color-text-muted)" }}
               >
                 <X size={12} /> Clear text
               </button>
@@ -162,16 +171,16 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
           </div>
 
           {/* Research Samples */}
-          <div style={{ marginBottom: "1rem" }}>
-            <div style={{ fontSize: "0.6875rem", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: "0.35rem" }}>
+          <div style={{ marginBottom: "1.25rem" }}>
+            <div style={{ fontSize: "0.71875rem", fontWeight: 600, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: "0.45rem" }}>
               Load Test Examples:
             </div>
-            <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap" }}>
               {sampleInputs.map((s, idx) => (
                 <button
                   key={idx}
                   className="btn btn-secondary"
-                  style={{ fontSize: "0.6875rem", padding: "0.2rem 0.5rem" }}
+                  style={{ fontSize: "0.71875rem", padding: "0.25rem 0.55rem" }}
                   onClick={() => {
                     setInputText(s.text);
                     setMode(s.mode);
@@ -185,8 +194,8 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
 
           {/* Secondary Controls (Threshold Slider) */}
           {mode !== "evidence" && mode !== "misinformation" && (
-            <div style={{ padding: "0.65rem 0.75rem", backgroundColor: "var(--color-surface-subtle)", borderRadius: "var(--radius-xs)", marginBottom: "1rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.71875rem", marginBottom: "0.25rem" }}>
+            <div style={{ padding: "0.75rem 0.85rem", backgroundColor: "var(--color-surface-subtle)", borderRadius: "var(--radius-xs)", marginBottom: "1.25rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.75rem", marginBottom: "0.35rem" }}>
                 <span style={{ fontWeight: 600, color: "var(--color-text-secondary)" }}>Toxicity Decision Threshold:</span>
                 <span className="tabular-numbers" style={{ fontWeight: 700 }}>{threshold.toFixed(2)}</span>
               </div>
@@ -206,7 +215,7 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <button
               className="btn btn-primary"
-              style={{ padding: "0.55rem 1.25rem", fontSize: "0.84375rem" }}
+              style={{ padding: "0.6rem 1.4rem", fontSize: "0.875rem" }}
               onClick={handleAnalyze}
               disabled={isLoading}
             >
@@ -227,42 +236,42 @@ export const WorkspacePage: React.FC<WorkspacePageProps> = ({ modelsStatus, onNa
           </div>
 
           {error && (
-            <div className="alert alert-warning" style={{ marginTop: "0.85rem" }}>
+            <div className="alert alert-warning" style={{ marginTop: "1rem" }}>
               <AlertTriangle size={15} style={{ flexShrink: 0 }} />
               <span>{error}</span>
             </div>
           )}
         </div>
 
-        {/* Right Column: Execution Information & Quick Status */}
+        {/* Right Column: Execution Information & Specifications */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <div className="panel">
+          <div className="panel" style={{ padding: "var(--card-padding)" }}>
             <div className="panel-header">
               <span className="panel-title">Model Specifications</span>
               <span className="badge badge-neutral">Windows 11 CPU</span>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", fontSize: "0.78125rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", fontSize: "0.8125rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ color: "var(--color-text-secondary)" }}>Module A (FEVER):</span>
                 <span style={{ fontWeight: 600 }}>BM25 Retrieval + 3-Class LR</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ color: "var(--color-text-secondary)" }}>Module B (LIAR):</span>
                 <span style={{ fontWeight: 600 }}>6-Class LR & Naive Bayes</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ color: "var(--color-text-secondary)" }}>Module C (Jigsaw):</span>
                 <span style={{ fontWeight: 600 }}>6-Category Multi-Label LR</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ color: "var(--color-text-secondary)" }}>Module D (Fairness):</span>
                 <span style={{ fontWeight: 600 }}>Short / Med / Long Cohorts</span>
               </div>
             </div>
 
-            <div style={{ marginTop: "0.85rem", paddingTop: "0.65rem", borderTop: "1px solid var(--color-border-subtle)", fontSize: "0.71875rem", color: "var(--color-text-muted)" }}>
-              All models execute in memory via scikit-learn without external inference servers.
+            <div style={{ marginTop: "1rem", paddingTop: "0.85rem", borderTop: "1px solid var(--color-border-subtle)", fontSize: "0.75rem", color: "var(--color-text-muted)", lineHeight: 1.5 }}>
+              All models execute in memory via scikit-learn without external inference servers. Real-time deterministic CPU execution.
             </div>
           </div>
         </div>

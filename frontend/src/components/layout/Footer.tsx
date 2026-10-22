@@ -6,96 +6,89 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer
-      style={{
-        marginTop: "auto",
-        backgroundColor: "var(--color-surface)",
-        borderTop: "1px solid var(--color-border)",
-        padding: "2.75rem var(--page-padding-x) 2.25rem",
-        fontSize: "0.8125rem",
-        color: "var(--color-text-secondary)"
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "var(--content-public-max)",
-          margin: "0 auto",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          flexWrap: "wrap",
-          gap: "2rem"
-        }}
-      >
-        <div style={{ maxWidth: "380px" }}>
-          <div style={{ fontWeight: 700, color: "var(--color-primary)", marginBottom: "0.35rem" }}>
+    <footer className="workbench-footer">
+      <div className="workbench-footer-inner">
+        {/* Column 1: Platform Overview */}
+        <div>
+          <div style={{ fontWeight: 700, fontSize: "0.875rem", color: "var(--color-primary)", marginBottom: "0.45rem" }}>
             TRUSTIQ Research Platform
           </div>
-          <p style={{ fontSize: "0.78125rem", color: "var(--color-text-secondary)", lineHeight: 1.55 }}>
-            Unified AI Trust, Evidence, Safety and Fairness Intelligence System. Operating on genuine classical machine learning algorithms with verifiable data provenance and honest evaluation reporting.
+          <p style={{ fontSize: "0.8125rem", color: "var(--color-text-secondary)", lineHeight: 1.55, margin: 0 }}>
+            Unified AI Trust, Evidence, Safety and Fairness Intelligence System. Operating on verifiable classical machine learning algorithms with reproducible provenance, local CPU execution, and transparent boundary documentation.
           </p>
         </div>
 
-        <div style={{ display: "flex", gap: "2.5rem", flexWrap: "wrap" }}>
-          <div>
-            <div style={{ fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-primary)", marginBottom: "0.6rem" }}>
-              Research Modules
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem", fontSize: "0.78125rem" }}>
-              <button onClick={() => onNavigate("evidence")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                FEVER Evidence Verification
-              </button>
-              <button onClick={() => onNavigate("misinformation")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                LIAR Misinformation Classifier
-              </button>
-              <button onClick={() => onNavigate("toxicity")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                Jigsaw Multi-Label Toxicity
-              </button>
-              <button onClick={() => onNavigate("fairness")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                Length-Aware Fairness Evaluator
-              </button>
-            </div>
+        {/* Column 2: Research Modules */}
+        <div>
+          <div style={{ fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--color-text-primary)", marginBottom: "0.6rem" }}>
+            Research Modules
           </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontSize: "0.8125rem" }}>
+            <button
+              onClick={() => onNavigate("evidence")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              FEVER Evidence Verification
+            </button>
+            <button
+              onClick={() => onNavigate("misinformation")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              LIAR Misinformation Classifier
+            </button>
+            <button
+              onClick={() => onNavigate("toxicity")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              Jigsaw Multi-Label Toxicity
+            </button>
+            <button
+              onClick={() => onNavigate("fairness")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              Length-Aware Fairness Evaluator
+            </button>
+          </div>
+        </div>
 
-          <div>
-            <div style={{ fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-primary)", marginBottom: "0.6rem" }}>
-              Governance & Policies
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem", fontSize: "0.78125rem" }}>
-              <button onClick={() => onNavigate("about")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                Methodology & Architecture
-              </button>
-              <button onClick={() => onNavigate("datasets")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                Dataset Attribution & Licenses
-              </button>
-              <button onClick={() => onNavigate("privacy")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                Privacy Policy
-              </button>
-              <button onClick={() => onNavigate("terms")} style={{ textAlign: "left", color: "var(--color-text-secondary)" }}>
-                Terms of Use & Research Boundaries
-              </button>
-            </div>
+        {/* Column 3: Governance & Documentation */}
+        <div>
+          <div style={{ fontWeight: 600, fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--color-text-primary)", marginBottom: "0.6rem" }}>
+            Governance & Policies
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontSize: "0.8125rem" }}>
+            <button
+              onClick={() => onNavigate("about")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              Methodology & Architecture
+            </button>
+            <button
+              onClick={() => onNavigate("datasets")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              Dataset Attribution & Licenses
+            </button>
+            <button
+              onClick={() => onNavigate("privacy")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => onNavigate("terms")}
+              style={{ background: "none", border: "none", textAlign: "left", color: "var(--color-text-secondary)", cursor: "pointer", padding: 0 }}
+            >
+              Terms of Use & Research Boundaries
+            </button>
           </div>
         </div>
       </div>
 
-      <div
-        style={{
-          maxWidth: "var(--content-public-max)",
-          margin: "1.5rem auto 0",
-          paddingTop: "1rem",
-          borderTop: "1px solid var(--color-border-subtle)",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "0.75rem",
-          fontSize: "0.71875rem",
-          color: "var(--color-text-muted)"
-        }}
-      >
-        <span>Locally Executed Classical ML Pipelines (Windows 11 CPU)</span>
-        <span>Strictly Classical Machine Learning: No LLMs, No Pretrained Foundation Models, No External APIs</span>
+      {/* Bottom Legal / Execution Strip */}
+      <div className="workbench-footer-bottom">
+        <span>Deterministic Classical Scikit-Learn Execution • Windows 11 CPU Local Host</span>
+        <span>Strictly Classical Machine Learning: No LLMs, No Foundation Models, No External APIs</span>
       </div>
     </footer>
   );

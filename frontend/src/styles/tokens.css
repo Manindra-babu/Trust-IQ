@@ -70,13 +70,16 @@
   --shadow-panel: 0 1px 3px rgba(23, 63, 50, 0.04), 0 4px 12px rgba(23, 63, 50, 0.02);
   --shadow-elevated: 0 8px 24px rgba(23, 63, 50, 0.07);
 
-  /* Responsive Widths & Fluid Horizontal Padding */
-  --content-public-max: 1480px;
-  --content-workbench-max: 1480px;
-  --page-padding-x: clamp(40px, 3.6vw, 56px);
+  /* Standardized Spacing & Precision Width System */
+  --content-public-max: 1440px;
+  --content-workbench-max: 1440px;
+  --page-padding-x: 32px;
+  --page-padding-y: 28px;
+  --panel-gap: 24px;
+  --card-padding: 24px;
 
-  --sidebar-width-expanded: 220px;
-  --sidebar-width-collapsed: 58px;
+  --sidebar-width-expanded: 250px;
+  --sidebar-width-collapsed: 60px;
   --topbar-height: 56px;
 
   /* Motion & Transitions (Restrained) */

@@ -1,3 +1,7 @@
+/* ==========================================================================
+   TRUSTIQ Precision Layout & Alignment System
+   ========================================================================== */
+
 /* Public Website Layout (NO Sidebar) */
 .public-layout {
   min-height: 100vh;
@@ -30,22 +34,30 @@
 }
 
 .public-main {
-  flex: 1;
+  flex: 1 0 auto;
   max-width: var(--content-public-max);
   width: 100%;
   margin: 0 auto;
   padding: 0 var(--page-padding-x);
 }
 
-/* Research Workbench Layout (With Collapsible Quiet Sidebar) */
+/* ==========================================================================
+   Research Workbench Application Shell (Precision Grid Architecture)
+   ========================================================================== */
 .workbench-layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-width-expanded) minmax(0, 1fr);
   min-height: 100vh;
-  display: flex;
   background-color: var(--color-canvas);
+  transition: grid-template-columns var(--transition-normal);
+}
+
+.workbench-layout.sidebar-collapsed {
+  grid-template-columns: var(--sidebar-width-collapsed) minmax(0, 1fr);
 }
 
 .workbench-sidebar {
-  width: var(--sidebar-width-expanded);
+  width: 100%;
   background-color: var(--color-surface);
   border-right: 1px solid var(--color-border);
   display: flex;
@@ -53,20 +65,17 @@
   position: sticky;
   top: 0;
   height: 100vh;
-  flex-shrink: 0;
   z-index: 30;
-  transition: width var(--transition-normal);
-}
-
-.workbench-sidebar.collapsed {
-  width: var(--sidebar-width-collapsed);
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .workbench-body {
-  flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 100vh;
 }
 
 .workbench-topbar {
@@ -80,21 +89,81 @@
   position: sticky;
   top: 0;
   z-index: 20;
+  flex: 0 0 auto;
+  box-sizing: border-box;
 }
 
 .workbench-content {
-  flex: 1;
-  padding: 2rem var(--page-padding-x) 4rem;
-  max-width: var(--content-workbench-max);
+  flex: 1 0 auto;
+  padding: var(--page-padding-y) var(--page-padding-x) 32px;
   width: 100%;
-  margin: 0 auto;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
-/* Responsive Grids */
+.workbench-content-inner {
+  max-width: var(--content-workbench-max);
+  width: 100%;
+  margin: 0;
+}
+
+/* Unified Workbench Footer */
+.workbench-footer {
+  flex: 0 0 auto;
+  width: 100%;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 24px var(--page-padding-x) 20px;
+  box-sizing: border-box;
+}
+
+.workbench-footer-inner {
+  max-width: var(--content-workbench-max);
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.workbench-footer-bottom {
+  max-width: var(--content-workbench-max);
+  width: 100%;
+  margin: 1.25rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.71875rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Workspace Two-Column Grid System
+   ========================================================================== */
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.95fr);
+  gap: var(--panel-gap);
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .workspace-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* General Grids */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: var(--panel-gap);
 }
 
 .grid-3 {
@@ -109,26 +178,32 @@
   gap: 1.25rem;
 }
 
+/* Responsive Breakpoints */
 @media (max-width: 1024px) {
   :root {
-    --page-padding-x: clamp(24px, 3.2vw, 32px);
+    --page-padding-x: 24px;
+    --page-padding-y: 20px;
   }
   .grid-3, .grid-4 {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .workbench-footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --page-padding-x: clamp(16px, 4vw, 20px);
+    --page-padding-x: 16px;
+    --page-padding-y: 16px;
   }
   .workbench-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   .workbench-sidebar {
-    width: 100%;
-    height: auto;
     position: relative;
+    height: auto;
     border-right: none;
     border-bottom: 1px solid var(--color-border);
   }
@@ -137,5 +212,14 @@
   }
   .grid-2, .grid-3, .grid-4 {
     grid-template-columns: 1fr;
+  }
+  .workbench-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .workbench-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
   }
 }
