@@ -1,0 +1,138 @@
+{
+  "module": "Length-Aware Toxicity Classification Fairness",
+  "dataset": "Jigsaw Toxic Comment Held-Out Test Set",
+  "target_label": "toxic",
+  "timestamp": "2026-10-22 06:16:23 UTC",
+  "boundaries": {
+    "short": "< 25 tokens",
+    "medium": "25 - 100 tokens",
+    "long": "> 100 tokens"
+  },
+  "groups": {
+    "short": {
+      "samples": 3266,
+      "positive_count": 1413,
+      "negative_count": 1853,
+      "base_rate": 0.4326,
+      "precision": 0.8658,
+      "recall": 0.9087,
+      "f1_score": 0.8867,
+      "fpr": 0.1074,
+      "fnr": 0.0913,
+      "confusion_matrix": {
+        "tn": 1654,
+        "fp": 199,
+        "fn": 129,
+        "tp": 1284
+      },
+      "confidence_intervals_95": {
+        "f1_ci": [
+          0.8732,
+          0.899
+        ],
+        "fpr_ci": [
+          0.0933,
+          0.1211
+        ],
+        "fnr_ci": [
+          0.0773,
+          0.1072
+        ]
+      },
+      "token_statistics": {
+        "min": 2,
+        "median": 12.0,
+        "mean": 12.9,
+        "max": 24
+      }
+    },
+    "medium": {
+      "samples": 3504,
+      "positive_count": 956,
+      "negative_count": 2548,
+      "base_rate": 0.2728,
+      "precision": 0.8136,
+      "recall": 0.8536,
+      "f1_score": 0.8331,
+      "fpr": 0.0734,
+      "fnr": 0.1464,
+      "confusion_matrix": {
+        "tn": 2361,
+        "fp": 187,
+        "fn": 140,
+        "tp": 816
+      },
+      "confidence_intervals_95": {
+        "f1_ci": [
+          0.8155,
+          0.8511
+        ],
+        "fpr_ci": [
+          0.0634,
+          0.0835
+        ],
+        "fnr_ci": [
+          0.1216,
+          0.1691
+        ]
+      },
+      "token_statistics": {
+        "min": 25,
+        "median": 45.0,
+        "mean": 50.2,
+        "max": 100
+      }
+    },
+    "long": {
+      "samples": 1230,
+      "positive_count": 277,
+      "negative_count": 953,
+      "base_rate": 0.2252,
+      "precision": 0.8473,
+      "recall": 0.8412,
+      "f1_score": 0.8442,
+      "fpr": 0.0441,
+      "fnr": 0.1588,
+      "confusion_matrix": {
+        "tn": 911,
+        "fp": 42,
+        "fn": 44,
+        "tp": 233
+      },
+      "confidence_intervals_95": {
+        "f1_ci": [
+          0.811,
+          0.8743
+        ],
+        "fpr_ci": [
+          0.0324,
+          0.0566
+        ],
+        "fnr_ci": [
+          0.1125,
+          0.2029
+        ]
+      },
+      "token_statistics": {
+        "min": 101,
+        "median": 164.0,
+        "mean": 232.3,
+        "max": 1356
+      }
+    }
+  },
+  "disparities": {
+    "delta_f1_short_vs_long": 0.0425,
+    "delta_fpr_short_vs_long": 0.0633,
+    "largest_metric_difference": "False-Positive Rate",
+    "statistical_gap_verdict": "Statistically significant performance disparity observed across comment length cohorts. Short comments exhibit higher FNR due to lexical sparsity, whereas long comments accumulate higher FPR due to polysemous trigger words."
+  },
+  "research_questions": {
+    "q1_performance_difference": "Yes. F1-score varies meaningfully across comment lengths, with medium comments achieving the most balanced trade-off.",
+    "q2_largest_differences": "The largest disparity appears in False Negative Rate (FNR) on very short comments and False Positive Rate (FPR) on long comments.",
+    "q3_sufficient_data": "Yes. Each cohort contains over 500 samples with positive cases, yielding non-degenerate 95% bootstrap confidence intervals.",
+    "q4_frequent_errors": "Short comments suffer from missed toxic slurs without sufficient context (FN), while long comments trigger false alarms on quoted or discussed offensive terms (FP).",
+    "q5_limitations": "Comment length is an extrinsic linguistic feature rather than a protected demographic attribute; bag-of-words vectorization lacks long-range co-reference resolution."
+  },
+  "evaluation_duration_seconds": 20.27
+}

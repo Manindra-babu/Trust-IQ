@@ -1,0 +1,195 @@
+{
+  "module": "Misinformation Detection",
+  "dataset": "Official LIAR Benchmark (Wang, ACL 2017)",
+  "timestamp": "2026-10-22 06:15:27 UTC",
+  "splits": {
+    "train": 10269,
+    "validation": 1284,
+    "test": 1283
+  },
+  "six_class_benchmark": {
+    "classes": [
+      "pants-fire",
+      "false",
+      "barely-true",
+      "half-true",
+      "mostly-true",
+      "true"
+    ],
+    "primary_model_lr": {
+      "accuracy": 0.2463,
+      "macro_f1": 0.2443,
+      "weighted_f1": 0.2468,
+      "per_class": {
+        "barely-true": {
+          "precision": 0.2577,
+          "recall": 0.2336,
+          "f1_score": 0.2451,
+          "support": 214.0
+        },
+        "false": {
+          "precision": 0.2896,
+          "recall": 0.256,
+          "f1_score": 0.2718,
+          "support": 250.0
+        },
+        "half-true": {
+          "precision": 0.2548,
+          "recall": 0.1985,
+          "f1_score": 0.2232,
+          "support": 267.0
+        },
+        "mostly-true": {
+          "precision": 0.25,
+          "recall": 0.245,
+          "f1_score": 0.2475,
+          "support": 249.0
+        },
+        "pants-fire": {
+          "precision": 0.1657,
+          "recall": 0.3152,
+          "f1_score": 0.2172,
+          "support": 92.0
+        },
+        "true": {
+          "precision": 0.2448,
+          "recall": 0.2796,
+          "f1_score": 0.2611,
+          "support": 211.0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "pants-fire",
+          "false",
+          "barely-true",
+          "half-true",
+          "mostly-true",
+          "true"
+        ],
+        "matrix": [
+          [
+            29,
+            16,
+            17,
+            15,
+            7,
+            8
+          ],
+          [
+            39,
+            64,
+            36,
+            38,
+            35,
+            38
+          ],
+          [
+            39,
+            41,
+            50,
+            27,
+            29,
+            28
+          ],
+          [
+            27,
+            40,
+            40,
+            53,
+            61,
+            46
+          ],
+          [
+            23,
+            23,
+            33,
+            47,
+            61,
+            62
+          ],
+          [
+            18,
+            37,
+            18,
+            28,
+            51,
+            59
+          ]
+        ]
+      }
+    },
+    "baseline_model_nb": {
+      "accuracy": 0.2354,
+      "macro_f1": 0.1927,
+      "weighted_f1": 0.2185
+    }
+  },
+  "three_class_experiment": {
+    "classes": [
+      "FALSE_OR_MOSTLY_FALSE",
+      "MIXED_OR_UNCERTAIN",
+      "TRUE_OR_MOSTLY_TRUE"
+    ],
+    "mapping": {
+      "pants-fire": "FALSE_OR_MOSTLY_FALSE",
+      "false": "FALSE_OR_MOSTLY_FALSE",
+      "barely-true": "FALSE_OR_MOSTLY_FALSE",
+      "half-true": "MIXED_OR_UNCERTAIN",
+      "mostly-true": "TRUE_OR_MOSTLY_TRUE",
+      "true": "TRUE_OR_MOSTLY_TRUE"
+    },
+    "accuracy": 0.4474,
+    "macro_f1": 0.4123,
+    "per_class": {
+      "FALSE_OR_MOSTLY_FALSE": {
+        "precision": 0.562,
+        "recall": 0.5216,
+        "f1_score": 0.541,
+        "support": 556.0
+      },
+      "MIXED_OR_UNCERTAIN": {
+        "precision": 0.2183,
+        "recall": 0.2322,
+        "f1_score": 0.225,
+        "support": 267.0
+      },
+      "TRUE_OR_MOSTLY_TRUE": {
+        "precision": 0.4596,
+        "recall": 0.4826,
+        "f1_score": 0.4708,
+        "support": 460.0
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "FALSE_OR_MOSTLY_FALSE",
+        "MIXED_OR_UNCERTAIN",
+        "TRUE_OR_MOSTLY_TRUE"
+      ],
+      "matrix": [
+        [
+          290,
+          117,
+          149
+        ],
+        [
+          93,
+          62,
+          112
+        ],
+        [
+          133,
+          105,
+          222
+        ]
+      ]
+    }
+  },
+  "training_duration_seconds": 8.74,
+  "limitations": [
+    "LIAR dataset consists primarily of US political claims from PolitiFact.",
+    "Predictions reflect stylistic and domain lexical patterns, not universal fact verification.",
+    "Surface text alone is often insufficient to distinguish subtle degrees of truth without external evidence."
+  ]
+}

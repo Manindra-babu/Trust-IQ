@@ -1,0 +1,222 @@
+{
+  "module": "Toxicity and Hate Speech Multi-Label Classification",
+  "dataset": "Jigsaw Toxic Comment Classification Challenge (Kaggle / Civil Comments)",
+  "timestamp": "2026-10-22 06:16:02 UTC",
+  "train_samples": 32000,
+  "test_samples": 8000,
+  "categories": [
+    "toxic",
+    "severe_toxic",
+    "obscene",
+    "threat",
+    "insult",
+    "identity_hate"
+  ],
+  "primary_model": {
+    "algorithm": "Logistic Regression (Balanced, C=2.0)",
+    "macro_f1": 0.6402,
+    "macro_roc_auc": 0.9551,
+    "per_label": {
+      "toxic": {
+        "precision": 0.845,
+        "recall": 0.8817,
+        "f1_score": 0.863,
+        "roc_auc": 0.9643,
+        "pr_auc": 0.9374,
+        "confusion_matrix": [
+          [
+            4926,
+            428
+          ],
+          [
+            313,
+            2333
+          ]
+        ],
+        "positive_count_test": 2646
+      },
+      "severe_toxic": {
+        "precision": 0.3514,
+        "recall": 0.7466,
+        "f1_score": 0.4778,
+        "roc_auc": 0.9484,
+        "pr_auc": 0.4532,
+        "confusion_matrix": [
+          [
+            7296,
+            408
+          ],
+          [
+            75,
+            221
+          ]
+        ],
+        "positive_count_test": 296
+      },
+      "obscene": {
+        "precision": 0.7765,
+        "recall": 0.8375,
+        "f1_score": 0.8059,
+        "roc_auc": 0.9638,
+        "pr_auc": 0.893,
+        "confusion_matrix": [
+          [
+            6136,
+            362
+          ],
+          [
+            244,
+            1258
+          ]
+        ],
+        "positive_count_test": 1502
+      },
+      "threat": {
+        "precision": 0.4077,
+        "recall": 0.6463,
+        "f1_score": 0.5,
+        "roc_auc": 0.971,
+        "pr_auc": 0.5243,
+        "confusion_matrix": [
+          [
+            7841,
+            77
+          ],
+          [
+            29,
+            53
+          ]
+        ],
+        "positive_count_test": 82
+      },
+      "insult": {
+        "precision": 0.6705,
+        "recall": 0.8224,
+        "f1_score": 0.7387,
+        "roc_auc": 0.9485,
+        "pr_auc": 0.8091,
+        "confusion_matrix": [
+          [
+            6016,
+            571
+          ],
+          [
+            251,
+            1162
+          ]
+        ],
+        "positive_count_test": 1413
+      },
+      "identity_hate": {
+        "precision": 0.3476,
+        "recall": 0.6615,
+        "f1_score": 0.4558,
+        "roc_auc": 0.9346,
+        "pr_auc": 0.4585,
+        "confusion_matrix": [
+          [
+            7424,
+            319
+          ],
+          [
+            87,
+            170
+          ]
+        ],
+        "positive_count_test": 257
+      }
+    }
+  },
+  "model_comparison": {
+    "multinomial_nb": {
+      "macro_f1": 0.512,
+      "macro_roc_auc": 0.9224,
+      "per_label": {
+        "toxic": {
+          "precision": 0.8362,
+          "recall": 0.8159,
+          "f1_score": 0.8259,
+          "roc_auc": 0.95
+        },
+        "severe_toxic": {
+          "precision": 0.5051,
+          "recall": 0.3345,
+          "f1_score": 0.4024,
+          "roc_auc": 0.9339
+        },
+        "obscene": {
+          "precision": 0.7491,
+          "recall": 0.7117,
+          "f1_score": 0.7299,
+          "roc_auc": 0.9285
+        },
+        "threat": {
+          "precision": 0.9091,
+          "recall": 0.122,
+          "f1_score": 0.2151,
+          "roc_auc": 0.9044
+        },
+        "insult": {
+          "precision": 0.7088,
+          "recall": 0.6752,
+          "f1_score": 0.6916,
+          "roc_auc": 0.9258
+        },
+        "identity_hate": {
+          "precision": 0.6154,
+          "recall": 0.1245,
+          "f1_score": 0.2071,
+          "roc_auc": 0.892
+        }
+      }
+    },
+    "linear_svm": {
+      "macro_f1": 0.6283,
+      "macro_roc_auc": 0.9359,
+      "per_label": {
+        "toxic": {
+          "precision": 0.8453,
+          "recall": 0.884,
+          "f1_score": 0.8642,
+          "roc_auc": 0.9642
+        },
+        "severe_toxic": {
+          "precision": 0.3495,
+          "recall": 0.6824,
+          "f1_score": 0.4622,
+          "roc_auc": 0.9352
+        },
+        "obscene": {
+          "precision": 0.7934,
+          "recall": 0.8362,
+          "f1_score": 0.8143,
+          "roc_auc": 0.9617
+        },
+        "threat": {
+          "precision": 0.4124,
+          "recall": 0.4878,
+          "f1_score": 0.4469,
+          "roc_auc": 0.8943
+        },
+        "insult": {
+          "precision": 0.6599,
+          "recall": 0.8238,
+          "f1_score": 0.7328,
+          "roc_auc": 0.9445
+        },
+        "identity_hate": {
+          "precision": 0.3491,
+          "recall": 0.6304,
+          "f1_score": 0.4494,
+          "roc_auc": 0.9158
+        }
+      }
+    }
+  },
+  "training_duration_seconds": 32.85,
+  "limitations": [
+    "Trained on Wikipedia talk page comments; style distribution differs from chat or social feeds.",
+    "Subtle sarcasm, reclaimed in-group slurs, or toxic nuance may be misclassified by lexical bag-of-words.",
+    "Predictions analyze text surface features, not personal identity or moral character."
+  ]
+}

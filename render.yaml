@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: trustiq-ml-platform
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      cd frontend && npm install && npm run build && cd ..
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: TRUSTIQ_HOST
+        value: 0.0.0.0

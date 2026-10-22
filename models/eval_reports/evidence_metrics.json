@@ -1,0 +1,73 @@
+{
+  "module": "Evidence and Faithfulness Verification",
+  "dataset": "FEVER Shared Task Dev",
+  "timestamp": "2026-10-22 06:15:16 UTC",
+  "train_samples": 15998,
+  "test_samples": 4000,
+  "classes": [
+    "NOT ENOUGH INFO",
+    "REFUTES",
+    "SUPPORTS"
+  ],
+  "metrics": {
+    "accuracy": 0.7905,
+    "macro_f1": 0.7902,
+    "weighted_f1": 0.7902,
+    "retrieval": {
+      "Recall@1": 0.397,
+      "Recall@3": 0.783,
+      "Recall@5": 0.899,
+      "evaluated_queries": 1000
+    },
+    "per_class": {
+      "NOT ENOUGH INFO": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 1333.0
+      },
+      "REFUTES": {
+        "precision": 0.7001,
+        "recall": 0.6497,
+        "f1_score": 0.6739,
+        "support": 1333.0
+      },
+      "SUPPORTS": {
+        "precision": 0.6734,
+        "recall": 0.7219,
+        "f1_score": 0.6968,
+        "support": 1334.0
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "NOT ENOUGH INFO",
+        "REFUTES",
+        "SUPPORTS"
+      ],
+      "matrix": [
+        [
+          1333,
+          0,
+          0
+        ],
+        [
+          0,
+          866,
+          467
+        ],
+        [
+          0,
+          371,
+          963
+        ]
+      ]
+    }
+  },
+  "training_duration_seconds": 13.84,
+  "limitations": [
+    "Lexical TF-IDF and BM25 baseline relies on surface term overlap.",
+    "Evaluating (Claim, Evidence) context resolves ~78.8% of verification tasks.",
+    "Trained exclusively on English claims from Wikipedia domain."
+  ]
+}

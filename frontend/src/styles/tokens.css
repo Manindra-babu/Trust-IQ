@@ -1,0 +1,85 @@
+:root {
+  /* Rich & Balanced Editorial Palette */
+  --color-canvas: #F5F3EC;              /* Warm Ivory Background */
+  --color-surface: #FFFFFF;             /* Pure White Content Surfaces */
+  --color-surface-subtle: #F0F4F1;      /* Light Sage-tinted Surface */
+  --color-surface-hover: #E7EFEA;
+  
+  /* Primary & Accent Greenery */
+  --color-forest: #173F32;              /* Deep Forest Green */
+  --color-jade: #26765B;                /* Primary Jade */
+  --color-sage: #D8E9DE;                /* Soft Sage Accent */
+  --color-sage-subtle: #EDF5F0;
+  --color-sage-border: #BCD4C4;
+
+  /* Aliases for semantic usage */
+  --color-primary: #173F32;             /* Deep Forest Green as Primary brand */
+  --color-primary-hover: #0F2E24;
+  --color-accent: #26765B;              /* Primary Jade for Highlights & Badges */
+  --color-accent-hover: #1D5E48;
+  --color-primary-subtle: #EDF5F0;
+  --color-primary-border: #BCD4C4;
+
+  /* Ink & Typography */
+  --color-text-primary: #252D29;        /* Ink Charcoal */
+  --color-text-secondary: #58635B;      /* Muted Text */
+  --color-text-muted: #7E8C82;
+  --color-text-inverse: #FFFFFF;
+
+  /* Fine Borders & Dividers */
+  --color-border: #DCE2DA;
+  --color-border-subtle: #E8ECE6;
+  --color-border-strong: #BDC8BA;
+
+  /* Semantic Feedback (Restrained & Meaningful) */
+  --color-success: #1E6B45;
+  --color-success-bg: #EAF4EE;
+  --color-success-border: #A3D4B9;
+
+  --color-warning: #995E10;
+  --color-warning-bg: #FDF6EC;
+  --color-warning-border: #E8CC95;
+
+  --color-danger: #A32E2E;
+  --color-danger-bg: #FDF1F1;
+  --color-danger-border: #E9AEAE;
+
+  --color-info: #215974;
+  --color-info-bg: #EEF5F8;
+  --color-info-border: #A5CEDB;
+
+  /* Module-Specific Accents (for visual differentiation without generic repetition) */
+  --color-module-a-accent: #26765B;     /* Jade - Evidence */
+  --color-module-b-accent: #8E5616;     /* Ochre/Warm Amber - Misinformation */
+  --color-module-c-accent: #9B3030;     /* Brick/Crimson - Toxicity */
+  --color-module-d-accent: #235872;     /* Slate Blue - Fairness */
+
+  /* Typography Stacks */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Georgia", "Cambria", "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Border Radii (Modest, strictly NO pill buttons) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Minimal, Crisp Shadows */
+  --shadow-subtle: 0 1px 2px rgba(23, 63, 50, 0.03);
+  --shadow-panel: 0 1px 3px rgba(23, 63, 50, 0.04), 0 4px 12px rgba(23, 63, 50, 0.02);
+  --shadow-elevated: 0 8px 24px rgba(23, 63, 50, 0.07);
+
+  /* Responsive Widths & Fluid Horizontal Padding */
+  --content-public-max: 1480px;
+  --content-workbench-max: 1480px;
+  --page-padding-x: clamp(40px, 3.6vw, 56px);
+
+  --sidebar-width-expanded: 220px;
+  --sidebar-width-collapsed: 58px;
+  --topbar-height: 56px;
+
+  /* Motion & Transitions (Restrained) */
+  --transition-fast: 120ms ease-out;
+  --transition-normal: 180ms ease-out;
+}

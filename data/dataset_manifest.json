@@ -1,0 +1,91 @@
+{
+  "liar": {
+    "train.tsv": {
+      "samples": 10269,
+      "label_distribution": {
+        "half-true": 2123,
+        "false": 1998,
+        "mostly-true": 1966,
+        "true": 1683,
+        "barely-true": 1657,
+        "pants-fire": 842
+      }
+    },
+    "valid.tsv": {
+      "samples": 1284,
+      "label_distribution": {
+        "false": 263,
+        "mostly-true": 251,
+        "half-true": 248,
+        "barely-true": 237,
+        "true": 169,
+        "pants-fire": 116
+      }
+    },
+    "test.tsv": {
+      "samples": 1283,
+      "label_distribution": {
+        "half-true": 267,
+        "false": 250,
+        "mostly-true": 249,
+        "barely-true": 214,
+        "true": 211,
+        "pants-fire": 92
+      }
+    }
+  },
+  "fever": {
+    "samples": 19998,
+    "label_distribution": {
+      "NOT ENOUGH INFO": 6666,
+      "SUPPORTS": 6666,
+      "REFUTES": 6666
+    },
+    "unique_evidence_anchors": 7100
+  },
+  "jigsaw": {
+    "samples": 159571,
+    "columns": [
+      "id",
+      "comment_text",
+      "toxic",
+      "severe_toxic",
+      "obscene",
+      "threat",
+      "insult",
+      "identity_hate"
+    ],
+    "label_distribution": {
+      "toxic": {
+        "positive": 15294,
+        "negative": 144277,
+        "prevalence": 0.0958
+      },
+      "severe_toxic": {
+        "positive": 1595,
+        "negative": 157976,
+        "prevalence": 0.01
+      },
+      "obscene": {
+        "positive": 8449,
+        "negative": 151122,
+        "prevalence": 0.0529
+      },
+      "threat": {
+        "positive": 478,
+        "negative": 159093,
+        "prevalence": 0.003
+      },
+      "insult": {
+        "positive": 7877,
+        "negative": 151694,
+        "prevalence": 0.0494
+      },
+      "identity_hate": {
+        "positive": 1405,
+        "negative": 158166,
+        "prevalence": 0.0088
+      }
+    }
+  }
+}
